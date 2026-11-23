@@ -1,0 +1,11 @@
+
+.red{
+    color: red;
+}
+.bold{
+    font-weight: bold;
+}
+
+button:nth-child(n+2){
+    margin-left: 20px;
+}

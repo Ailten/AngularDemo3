@@ -1,3 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import 'tailwindcss';
+/* @import 'tailwindcss'; */
+
+@font-face {
+    font-family: Arimo;
+    src: url(http://localhost:4200/font/Arimo/Arimo-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: Arimo;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    margin-bottom: 28px;
+}
+
+header h1,
+h2 
+{
+    margin: 0;
+    text-align: center;
+    text-decoration: underline;
+}
+
+p{
+    margin-top: 0;
+}
+
+#nav-container{
+    width: 200px;
+    position: fixed;
+}
+
+#body-container{
+    margin-left: 200px;
+}
+
+div.block-exo{
+    padding: 14px;
+}
+div.block-exo:nth-child(n+2){
+    border-top: solid 1px black;
+}
+
+div#body-container h2{
+    margin-bottom: 12px;
+}

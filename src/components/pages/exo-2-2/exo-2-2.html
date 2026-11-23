@@ -1,0 +1,15 @@
+
+<h2>exo 2.2</h2>
+
+<div>
+
+    <div class="block-exo">
+        <p [class]="{
+            red: isRed(),
+            bold: isBold()
+        }">message important</p>
+        <button (click)="isRed.update((v) => ! v)">RED</button>
+        <button (click)="isBold.update((v) => ! v)">BOLD</button>
+    </div>
+
+</div>

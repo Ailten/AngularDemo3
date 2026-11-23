@@ -1,0 +1,23 @@
+<h2>exo 1</h2>
+
+<div>
+
+    <div class="block-exo">
+        <p>part 1 :</p>
+        <button (click)="switchIsOn()">{{(isOn()? 'On': 'Off')}}</button>
+        <button [disabled]="!isOn()">test</button>
+    </div>
+
+    <div class="block-exo">
+        <p>part 2 :</p>
+        <button (click)="incrementClick(1)">click count : {{nmbrClick()}}</button>
+    </div>
+
+    <div class="block-exo">
+        <p>part 3 :</p>
+    
+        <input type="text" [(ngModel)]="inputText"/>
+        <p>{{inputText()}}</p>
+    </div>
+
+</div>

@@ -1,0 +1,9 @@
+
+
+nav a {
+    color: #383aad;
+}
+
+nav a.link-active{
+    font-weight: bold;
+}
