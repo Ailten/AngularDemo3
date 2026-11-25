@@ -1,0 +1,38 @@
+
+<h2>exo 4.3</h2>
+
+<div>
+
+    <div class="block-exo">
+
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="3">{{caclulatorNum() | number:'9.0-0':'fr-FR'}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(y of [0,1,2]; track y){
+                    <tr>
+                        @for(x of [1,2,3]; track x){
+                            @let num = x + y * 3;
+                            <td>
+                                <button (click)="addDigit(num)">{{num}}</button>
+                            </td>
+                        }
+                    </tr>
+                }
+
+                <!-- zero button -->
+                <tr>
+                    <td colspan="3">
+                        <button (click)="addDigit(0)">0</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

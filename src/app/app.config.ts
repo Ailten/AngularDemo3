@@ -9,3 +9,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes)
   ]
 };
+
+// to use 'fr-FR' as parameter pipe.
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr);

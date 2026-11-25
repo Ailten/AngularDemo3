@@ -1,0 +1,21 @@
+
+<h2>exo 4.1</h2>
+
+<div>
+
+    <div class="block-exo">
+
+        <input type="number" [(ngModel)]="money"/>
+        <p>{{ money() | currency: 'EUR'}}</p>
+
+    </div>
+
+    <div class="block-exo">
+
+        <input type="date" [(ngModel)]="birthDate"/>
+        <p>{{ birthDate() | date: 'dd/MM/yyyy'}}</p>
+        <p>{{ birthDate() | date: 'MM/dd/yyyy'}}</p>
+
+    </div>
+
+</div>

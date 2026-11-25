@@ -1,0 +1,6 @@
+
+<div>
+    <p>{{ article().name}}</p>
+    <p>{{ article().price | currency: 'EUR'}}</p>
+    <button (click)="supres.emit(article())">DELETE</button>
+</div>

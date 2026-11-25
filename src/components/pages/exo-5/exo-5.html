@@ -1,0 +1,28 @@
+
+<h2>exo 5</h2>
+
+<div>
+
+    <div class="block-exo">
+        <label for="article-name">article name :</label>
+        <input id="article-name" [(ngModel)]="articleName"/>
+        <br/>
+        <label for="price">price :</label>
+        <input id="price" type="number" [(ngModel)]="price"/>
+        <br/>
+        <button (click)="addArticle()">Validate</button>
+    </div>
+
+    <div class="block-exo">
+
+        @for(article of articles(); track $index; let i = $index){
+            <app-print-article [article]="article" (supres)="onSupres($event)">  
+            </app-print-article>
+        }
+        @empty {
+            <p>no articles</p>
+        }
+
+    </div>
+
+</div>
