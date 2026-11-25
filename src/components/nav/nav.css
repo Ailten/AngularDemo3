@@ -1,9 +1,23 @@
 
 
+
 nav a {
     color: #383aad;
 }
 
 nav a.link-active{
     font-weight: bold;
+}
+
+
+nav ul {
+    list-style-type: '┃';
+}
+/* -- edit the puce of the li who has a link active. */
+nav li:has(a.link-active)::marker {
+    content: "┣";
+}
+/* -- add a text before the link active (into the li). */
+nav li:has(a.link-active)::before {
+    content: "╸";
 }
