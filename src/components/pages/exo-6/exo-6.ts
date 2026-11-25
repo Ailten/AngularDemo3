@@ -11,23 +11,27 @@ export class Exo6 {
 
   secondes = signal(0);
 
-  intervalIndex: number | undefined = undefined;
+  intervalIndex = signal<number|null>(null);
 
   start(){
-    if(this.intervalIndex !== undefined){
+    if(this.intervalIndex() !== null){
       return;
     }
 
-    this.intervalIndex = setInterval(() => {
+    let indexNewInterval: number = setInterval(() => {
       this.secondes.update((v) => v + 1);
     }, 1000);
+
+    this.intervalIndex.set(indexNewInterval);
+
   }
+
   pause(){
-    if(this.intervalIndex === undefined){
+    if(this.intervalIndex() === null){
       return;
     }
 
-    clearInterval(this.intervalIndex);
+    clearInterval(this.intervalIndex()!);
   }
   reset(){
     this.secondes.set(0);
