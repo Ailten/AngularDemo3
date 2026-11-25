@@ -3,11 +3,9 @@
     <h2>{{navTitle}}</h2>
 
     <ul>
-        <li><a [routerLink]="'home'" routerLinkActive="link-active">home</a></li>
-        <li><a [routerLink]="'exercices/exo-1'" routerLinkActive="link-active">exo-1</a></li>
-        <li><a [routerLink]="'exercices/exo-2-1'" routerLinkActive="link-active">exo-2-1</a></li>
-        <li><a [routerLink]="'exercices/exo-2-2'" routerLinkActive="link-active">exo-2-2</a></li>
-        <li><a [routerLink]="'exercices/exo-3'" routerLinkActive="link-active">exo-3</a></li>
+        @for(link of links; track $index){
+            <li><a [routerLink]="link.route" routerLinkActive="link-active">{{link.name}}</a></li>
+        }
     </ul>
 
 </nav>

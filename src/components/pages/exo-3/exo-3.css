@@ -1,0 +1,9 @@
+
+p{
+    width: 250px;
+    text-align: center;
+}
+
+button:nth-child(n+3){
+    margin-left: 20px;
+}
