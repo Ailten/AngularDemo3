@@ -1,0 +1,16 @@
+
+input{
+    margin-left: 20px;
+}
+
+.input-block{
+    margin-bottom: 12px
+}
+
+#article-total{
+    padding-top: 10px;
+}
+#article-total > div {
+    width: 30%;
+    display: inline-block;
+}

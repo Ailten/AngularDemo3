@@ -1,6 +1,8 @@
 
-<div>
-    <p>{{ article().name}}</p>
-    <p>{{ article().price | currency: 'EUR'}}</p>
-    <button (click)="supres.emit(article())">DELETE</button>
+<div class="article-line">
+    <div class="article-cell">{{ article().name}}</div>
+    <div class="article-cell">{{ article().price | currency: 'EUR'}}</div>
+    <div class="article-cell">
+        <button (click)="supres.emit(article())">DELETE</button>
+    </div>
 </div>

@@ -4,12 +4,14 @@
 <div>
 
     <div class="block-exo">
-        <label for="article-name">article name :</label>
-        <input id="article-name" [(ngModel)]="articleName"/>
-        <br/>
-        <label for="price">price :</label>
-        <input id="price" type="number" [(ngModel)]="price"/>
-        <br/>
+        <div class="input-block">
+            <label for="article-name">article name :</label>
+            <input id="article-name" [(ngModel)]="articleName"/>
+        </div>
+        <div class="input-block">
+            <label for="price">price :</label>
+            <input id="price" type="number" [(ngModel)]="price"/>
+        </div>
         <button (click)="addArticle()">Validate</button>
     </div>
 
@@ -21,6 +23,13 @@
         }
         @empty {
             <p>no articles</p>
+        }
+
+        @if(!articleIsEmpty()){
+            <div id="article-total">
+                <div>TOTAL :</div>
+                <div>{{articleTotalPrice() | currency: 'EUR'}}</div>
+            </div>
         }
 
     </div>
