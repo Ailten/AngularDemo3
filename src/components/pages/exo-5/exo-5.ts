@@ -36,6 +36,11 @@ export class Exo5 implements OnInit {
   }
 
   addArticle(){
+
+    if (this.price() < 0){
+      console.error('prix invalid !');
+      return;
+    }
     
     let newArticle: Article = {
       name: this.articleName(),
