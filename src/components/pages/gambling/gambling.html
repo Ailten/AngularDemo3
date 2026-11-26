@@ -1,0 +1,20 @@
+
+<h2>gambling</h2>
+
+<div>
+
+    <div class="block-exo">
+
+        <app-gamblin-screen
+            [charactersAllow]="charactersAllow()"
+            [poolsResults]="poolsResults()"
+        ></app-gamblin-screen>
+        
+        <app-gambling-input 
+            [charactersAllow]="charactersAllow()" 
+            (eventSpinWheel)="eventUserSpinWheel($event)"
+        ></app-gambling-input>
+
+    </div>
+    
+</div>

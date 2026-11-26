@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { ToMinutesPipe } from '../../pipes/to-minutes-pipe';
 
 @Component({
@@ -13,8 +13,25 @@ export class Exo6 {
 
   intervalIndex = signal<number|null>(null);
 
+  isAble = computed<boolean>(() => this.intervalIndex() !== null);
+
+  bestScore = signal(0);
+
+  constructor() {
+
+    this.bestScore.set(Number(localStorage.getItem('best-score') ?? '0'));
+
+    effect(() => {
+      let lastBestScore = this.bestScore();
+      if(this.secondes() > lastBestScore){
+        localStorage.setItem('best-score', this.secondes().toString());
+        this.bestScore.set(this.secondes());
+      }
+    });
+  }
+
   start(){
-    if(this.intervalIndex() !== null){
+    if(this.isAble()){
       return;
     }
 
@@ -27,14 +44,27 @@ export class Exo6 {
   }
 
   pause(){
-    if(this.intervalIndex() === null){
+    if(!this.isAble()){
       return;
     }
 
-    clearInterval(this.intervalIndex()!);
+    this.cleanIntervalTime();
   }
   reset(){
+    if(this.isAble()){
+      this.cleanIntervalTime();
+    }
+
     this.secondes.set(0);
+
+    // reset best score stock (in signal and localStorage).
+    localStorage.removeItem('best-score');
+    this.bestScore.set(0);
+  }
+
+  cleanIntervalTime(){
+    clearInterval(this.intervalIndex()!);
+    this.intervalIndex.set(null);
   }
 
 }

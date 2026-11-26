@@ -7,9 +7,11 @@
 
         <p>{{ secondes() | toMinutes }}</p>
 
-        <button (click)="start()">START</button>
-        <button (click)="pause()">PAUSE</button>
+        <button (click)="start()" [disabled]="isAble()">START</button>
+        <button (click)="pause()" [disabled]="!isAble()">PAUSE</button>
         <button (click)="reset()">RESET</button>
+
+        <p>best score : {{bestScore()}}</p>
 
     </div>
 

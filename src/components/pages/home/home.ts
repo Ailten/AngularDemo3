@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Nav } from '../../nav/nav';
 
 @Component({
   selector: 'app-home',
-  imports: [Nav],
+  imports: [],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

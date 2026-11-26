@@ -9,6 +9,8 @@ import { Exo42 } from '../components/pages/exo-4-2/exo-4-2';
 import { Exo43 } from '../components/pages/exo-4-3/exo-4-3';
 import { Exo5 } from '../components/pages/exo-5/exo-5';
 import { Exo6 } from '../components/pages/exo-6/exo-6';
+import { Exo7 } from '../components/pages/exo-7/exo-7';
+import { Gambling } from '../components/pages/gambling/gambling';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,6 +27,9 @@ export const routes: Routes = [
             { path: 'exo-4-3', component: Exo43 },
             { path: 'exo-5', component: Exo5 },
             { path: 'exo-6', component: Exo6 },
+            { path: 'exo-7', component: Exo7 },
         ],
     },
+
+    { path: 'gambling', component: Gambling },
 ];

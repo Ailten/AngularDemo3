@@ -1,0 +1,12 @@
+
+<div class="gambling-bool" [class.spin]="isSpinning()">
+    <div>
+        @for(character of charactersAllow(); track $index){
+            <div class="gambling-character">{{character}}</div>
+        }
+        <!-- for overange -->
+        @for(character of charactersAllow(); track $index){
+            <div class="gambling-character">{{character}}</div>
+        }
+    </div>
+</div>

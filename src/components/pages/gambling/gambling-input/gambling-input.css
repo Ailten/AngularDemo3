@@ -1,0 +1,43 @@
+
+#gambling-input{
+    width: 200px;
+    height: 400px;
+    display: inline-block;
+    border: 1px rgba(255, 217, 0, 0.445) solid;
+    border-radius: 5px;
+
+    position: relative;
+}
+
+#gambling-input .bar{
+    width: 10px;
+    height: 300px;
+    background-color: rgb(87, 71, 64);
+    position: absolute;
+    top: 50px;
+    left: 95px;
+    border-radius: 5px;
+}
+#gambling-input .ball{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: rgb(59, 24, 10);
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-image: radial-gradient(closest-side at 30% 30%, rgba(255, 255, 255, 0.158), rgba(0, 0, 0, 0));
+}
+
+/* css anime */
+.ball.ball-anime{
+    animation-name: ball-anime;
+    animation-duration: 1s;
+}
+@keyframes ball-anime {
+    0% {}
+    50% {
+        top: 350px;
+    }
+    100% {}
+}

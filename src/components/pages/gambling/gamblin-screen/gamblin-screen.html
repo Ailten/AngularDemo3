@@ -1,0 +1,14 @@
+
+<div id="gambling-screen">
+
+    <div class="pool-container">
+        @for(resultPool of poolsResultsNN(); track $index; let i = $index){
+            <app-gambling-pool 
+                [charactersAllow]="charactersAllow()"
+                [isSpinning]="isSpinning()[i]"
+                [attr.data-id-pool]="i"
+            ></app-gambling-pool>
+        }
+    </div>
+
+</div>

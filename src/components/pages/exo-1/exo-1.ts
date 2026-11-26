@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { Nav } from '../../nav/nav';
 import { signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-exo-1',
-  imports: [Nav, FormsModule],
+  imports: [FormsModule],
   templateUrl: './exo-1.html',
   styleUrl: './exo-1.css',
 })
