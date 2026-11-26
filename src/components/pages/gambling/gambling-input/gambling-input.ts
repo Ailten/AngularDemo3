@@ -1,4 +1,4 @@
-import { Component, input, OnInit, output } from '@angular/core';
+import { Component, input, model, OnInit, output } from '@angular/core';
 
 @Component({
   selector: 'app-gambling-input',
@@ -6,12 +6,11 @@ import { Component, input, OnInit, output } from '@angular/core';
   templateUrl: './gambling-input.html',
   styleUrl: './gambling-input.css',
 })
-export class GamblingInput implements OnInit {
+export class GamblingInput implements OnInit{
 
-  charactersAllow = input.required<string>();
-  poolsCount = input<number>(3);
+  eventSpinWheel = output();
 
-  eventSpinWheel = output<number[]>();
+  isWheelSpinning = model.required<boolean>();
 
   ngOnInit(): void {
     // remove class anime when anime end.
@@ -23,21 +22,13 @@ export class GamblingInput implements OnInit {
 
   launchWheel($event: Event){
 
-    // TODO: verify if user can launch 
-    // (if the wheel is not already spinning)
-    // (or no more money).
+    // do not allow to use spin input when already spinning.
+    if(this.isWheelSpinning())
+      return;
+    this.isWheelSpinning.set(true);
 
-    // generate every pool results (as index).
-    let rng: number[] = [];
-    for(let i=0; i<this.poolsCount(); i++){
-      rng.push(
-        // genereate a random index in pool.
-        Math.floor(Math.random() * (this.charactersAllow().length / 2))
-      );
-    }
-    
     // send the results to parent component.
-    this.eventSpinWheel.emit(rng);
+    this.eventSpinWheel.emit();
 
     // launch an animation css.
     ($event.target as HTMLElement)?.classList.add('ball-anime');

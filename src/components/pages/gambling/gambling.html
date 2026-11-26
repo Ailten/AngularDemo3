@@ -6,13 +6,15 @@
     <div class="block-exo">
 
         <app-gamblin-screen
-            [charactersAllow]="charactersAllow()"
+            [charactersWheel]="charactersWheel()"
             [poolsResults]="poolsResults()"
+            [lengthWheel]="lengthWheel()"
+            (wheelEndSpinning)="wheelEndSpinning()"
         ></app-gamblin-screen>
         
         <app-gambling-input 
-            [charactersAllow]="charactersAllow()" 
-            (eventSpinWheel)="eventUserSpinWheel($event)"
+            (eventSpinWheel)="eventUserSpinWheel()"
+            [(isWheelSpinning)]="isWheelSpinning"
         ></app-gambling-input>
 
     </div>

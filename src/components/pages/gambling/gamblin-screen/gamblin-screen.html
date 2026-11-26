@@ -2,11 +2,13 @@
 <div id="gambling-screen">
 
     <div class="pool-container">
-        @for(resultPool of poolsResultsNN(); track $index; let i = $index){
+        @for(resultPool of poolsResults(); track $index; let i = $index){
             <app-gambling-pool 
-                [charactersAllow]="charactersAllow()"
-                [isSpinning]="isSpinning()[i]"
-                [attr.data-id-pool]="i"
+                [charactersWheel]="charactersWheel()[i]"
+                [resultPool]="resultPool"
+                [(isSpinning)]="isSpinning()[i]"
+                [spinningTime]="(i+1) / poolsResults().length * timeFullSpin()"
+                [dataIndexWheel]="i"
             ></app-gambling-pool>
         }
     </div>

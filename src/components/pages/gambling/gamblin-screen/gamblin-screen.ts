@@ -1,4 +1,4 @@
-import { Component, computed, effect, input, signal } from '@angular/core';
+import { Component, effect, input, output, signal } from '@angular/core';
 import { GamblingPool } from '../gambling-pool/gambling-pool';
 
 @Component({
@@ -9,48 +9,38 @@ import { GamblingPool } from '../gambling-pool/gambling-pool';
 })
 export class GamblinScreen {
 
-  charactersAllow = input.required<string>();
-  poolsCount = input<number>(3);
+  readonly timeFullSpin = signal(2.0);
 
-  // get the result of a spining wheel.
-  poolsResults = input.required<number[]|null>()
-  poolsResultsNN = computed<number[]>(() => {  // remap poolsResults as not null.
-    return this.poolsResults() ?? 
-      Array.from({ length: this.poolsCount() }, (_, i) => 0);
-  });
+  charactersWheel = input.required<string[]>();
+  poolsResults = input.required<number[]>();
+  lengthWheel = input.required<number>();
 
-  isSpinning = signal<boolean[]>(new Array(this.poolsCount()).map((_, i) => false));
+  // list of boolean, to know if eatch wheel is spinning.
+  isSpinning = signal([signal(false), signal(false), signal(false)]);
+
+  // call when all wheel end spining.
+  wheelEndSpinning = output();
 
   constructor() {
 
     // execute when poolsResults change.
     effect(() => {
-      this.poolsResults()?.forEach((result, i) => {
 
-        // refill full of true.
-        this.isSpinning.set(
-          Array.apply(null, Array(this.poolsResults()!.length)).map((_) => true)
-        );
+      // do not spin for the assignation input.
+      if(this.poolsResults().includes(-1))
+        return;
 
-        console.log(`pool [${i}] START spining`);
+      console.log(`every wheel START spinning.`);
 
-        const timeSpin = 2.0;
-        setTimeout(() => {
+      // refill full of true.
+      this.isSpinning().forEach((v) => v.set(true));
+        
+      // call when spin is end.
+      setTimeout(() => {
+        this.wheelEndSpinning.emit();
+      }, this.timeFullSpin() * 1000);
 
-          console.log(`pool [${i}] END spining`)
-
-          this.isSpinning.update((v) => 
-            v.map((vcel, j) => (j===i? false: vcel))
-          );
-
-          let pool = document.querySelector(`app-gambling-pool[data-id-pool="${i}"] > div > div`);
-          (pool as HTMLElement)!.style.transform = `translateY(${(this.poolsResultsNN()[i] * 100 * -1)}px)`;
-          
-        }, timeSpin * 1000 * ((i+1) / this.poolsResults()!.length));
-
-      });
     });
   }
-  
 
 }

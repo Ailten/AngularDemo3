@@ -1,12 +1,11 @@
 
-<div class="gambling-bool" [class.spin]="isSpinning()">
+<div class="gambling-bool" [class.spin]="isSpinning()" [attr.data-index-wheel]="dataIndexWheel()">
     <div>
-        @for(character of charactersAllow(); track $index){
+        @for(character of charactersWheelAscii(); track $index){
             <div class="gambling-character">{{character}}</div>
         }
         <!-- for overange -->
-        @for(character of charactersAllow(); track $index){
-            <div class="gambling-character">{{character}}</div>
-        }
+        <div class="gambling-character">{{charactersWheelAscii()[0]}}</div>
+        <div class="gambling-character">{{charactersWheelAscii()[1]}}</div>
     </div>
 </div>
