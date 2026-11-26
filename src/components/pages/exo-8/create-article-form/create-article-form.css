@@ -1,0 +1,29 @@
+
+.form-create-article-container{
+    width: 300px;
+    margin: auto;
+}
+
+input{
+    margin-left: 20px;
+}
+
+.input-line{
+    margin: 10px 0;
+    text-align: right;
+}
+
+.submit-line > button{
+    width: 100%;
+}
+
+
+h3{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.error{
+    color: red;
+}

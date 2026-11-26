@@ -1,0 +1,26 @@
+
+<h2>exo 8</h2>
+
+<div>
+
+    <div class="block-exo">
+
+        <!-- V1 : with [(NgModel)], map input by input. -->
+        <app-create-article 
+            (sendArticle)="addArticle($event)">
+        </app-create-article>
+        <!-- V2 : with [(NgModel)], map input by input. -->
+        <app-create-article-form 
+            (sendArticle)="addArticle($event)">
+        </app-create-article-form>
+
+        <hr/>
+
+        <app-list-article 
+            [articleList]="articleService.articles()" 
+            (removeArticle)="articleService.remove($event)">
+        </app-list-article>
+
+    </div>
+
+</div>

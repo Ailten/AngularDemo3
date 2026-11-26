@@ -1,0 +1,87 @@
+
+button:nth-child(n+2){
+    margin-left: 20px;
+}
+
+.error{
+    color: red;
+}
+
+/* font pokemon (2 overlaping) */
+@font-face {
+    font-family: Pokemon;
+    src: url(http://localhost:4200/font/Pokemon/Pokemon.ttf);
+}
+.pokemon-font {
+    font-family: Pokemon;
+    color: yellow;
+    position: absolute;
+}
+@font-face {
+    font-family: Pokemon-Border;
+    src: url(http://localhost:4200/font/Pokemon/Pokemon.woff2);
+}
+.pokemon-font-border {
+    font-family: Pokemon-Border;
+    color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+img{
+    border: 2px red solid;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 0, 0.281);
+    width:200px;
+}
+
+*:has(> .pokemon-text){
+    height: 40px;
+    width: 200px;
+    position: relative;
+}
+
+.pokemon-text{
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+}
+
+.pokemon-container{
+    margin: 20px;
+    margin-left: 36px;
+}
+
+.pokemon-stats{
+    border: 2px solid red;
+    border-radius: 5px;
+    width: 200px;
+}
+
+li{
+    margin: 5px 0;
+}
+
+.meter{
+    background-color: yellow;
+    height: 5px;
+    width: 120px;
+}
+.meter > div{
+    background-color: red;
+    height: 5px;
+}
+
+div:has(> .pokemon-type){
+    position: absolute;
+    margin-top: -36px;
+    margin-left: 6px;
+}
+.pokemon-type{
+    border: none;
+    width: 60px;
+}
+.pokemon-type:nth-child(n+2){
+    margin-left: 5px;
+}

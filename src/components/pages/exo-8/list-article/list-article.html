@@ -1,0 +1,42 @@
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price / u</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+        @for(article of articleList(); track $index){
+            <tr>
+                <td>{{$index + 1}}</td>
+                <td>{{article.name}}</td>
+                <td>{{article.price | currency: 'EUR'}}</td>
+                <td>{{article.price * article.quantity | currency: 'EUR'}}</td>
+                <td>{{article.quantity}}</td>
+                <td>
+                    <button (click)="deleteArticle($index)">Delete</button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2">TOTAL :</td>
+            <td>{{totalPriceUnit() | currency: 'EUR'}}</td>
+            <td>{{totalPrice() | currency: 'EUR'}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tfoot>
+
+</table>

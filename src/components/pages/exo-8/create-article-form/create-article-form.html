@@ -1,0 +1,34 @@
+
+<div class="form-create-article-container">
+
+    <h3>create article (FormField)</h3>
+
+    <div class="input-line">
+        <label for="name-article">name :</label>
+        <input type="text" id="name-article" [formField]="articleForm.name"/>
+
+        <!-- example error -->
+        @if(
+            articleForm.name().touched() && 
+            articleForm.name().invalid()
+        ){
+            @for(error of articleForm.name().errors(); track $index){
+                <p class="error">{{error.message}}</p>
+            }
+        }
+        
+    </div>
+    <div class="input-line">
+        <label for="price-article">prix :</label>
+        <input type="number" id="price-article" [formField]="articleForm.price"/>
+    </div>
+    <div class="input-line">
+        <label for="quantity-article">quantité :</label>
+        <input type="number" id="price-article" [formField]="articleForm.quantity"/>
+    </div>
+
+    <div class="input-line submit-line">
+        <button (click)="createArticle()">Ajout</button>
+    </div>
+
+</div>

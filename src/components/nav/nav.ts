@@ -31,6 +31,7 @@ export class Nav implements OnInit{
       {route: 'exercices/exo-5'   , name:'exo 5'},
       {route: 'exercices/exo-6'   , name:'exo 6'},
       {route: 'exercices/exo-7'   , name:'exo 7'},
+      {route: 'exercices/exo-8'   , name:'exo 8'},
 
       {route: 'gambling'   , name:'gambling'},
     ];

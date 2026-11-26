@@ -4,7 +4,57 @@
 <div>
 
     <div class="block-exo">
-        
+
+        <button (click)="previous()">précédent</button>
+        <button (click)="next()">suivant</button>
+
+        @if(pokemon.isLoading()){
+            <p>Chargement...</p>
+        }
+        <!-- only for error in fetch call -->
+        @else if(pokemon.error()){
+            <p class="error">error during the fetch !</p>
+        }
+        @else if(pokemon.hasValue()){
+
+            @if(pokemon.value().status !== undefined && pokemon.value().status !== 200){
+                <p class="error">{{pokemon.value().status}} : {{pokemon.value().message}}</p>
+            }
+            @else {
+                <div class="pokemon-container">
+                    <div>
+                        <p class="pokemon-font pokemon-text">{{pokemon.value().name}}</p>
+                        <p class="pokemon-font-border pokemon-text">{{pokemon.value().name}}</p>
+                    </div>
+                    <img [src]="pokemon.value().sprites.front_default"/>
+
+                    <div>
+                    @for(type of pokemonTypeImgUrl(); track $index){
+                        <img [src]="type" class="pokemon-type"/>
+                    }
+                    </div>
+
+                    <div class="pokemon-stats">
+                        <ul>
+                        @for(stat of pokemon.value().stats; track $index){
+                            <li>
+                                {{stat.stat.name}} : 
+                                
+                                <div class="meter">
+                                    <div [style.width.%]="stat.base_stat / 2.55"></div>
+                                </div>
+                            </li>
+                            <!--
+                            <range [id]="stat.name">{{stat.base_stat}}/255</range>
+                            -->
+                        }  
+                        </ul>
+                    </div>
+                </div>
+            }
+
+        }
+
     </div>
 
 </div>
