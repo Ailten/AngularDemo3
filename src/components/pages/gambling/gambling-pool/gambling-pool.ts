@@ -1,4 +1,4 @@
-import { Component, computed, effect, input, model, untracked } from '@angular/core';
+import { AfterViewInit, Component, computed, effect, input, model, untracked } from '@angular/core';
 
 @Component({
   selector: 'app-gambling-pool',
@@ -6,7 +6,7 @@ import { Component, computed, effect, input, model, untracked } from '@angular/c
   templateUrl: './gambling-pool.html',
   styleUrl: './gambling-pool.css',
 })
-export class GamblingPool {
+export class GamblingPool{
 
   charactersWheel = input.required<string>();
   resultPool = input.required<number>();

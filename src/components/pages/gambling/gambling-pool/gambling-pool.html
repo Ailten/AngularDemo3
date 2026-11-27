@@ -2,10 +2,21 @@
 <div class="gambling-bool" [class.spin]="isSpinning()" [attr.data-index-wheel]="dataIndexWheel()">
     <div>
         @for(character of charactersWheelAscii(); track $index){
-            <div class="gambling-character">{{character}}</div>
+            <div class="gambling-character" 
+                [attr.data-char-index]="$index">
+                {{character}}
+            </div>
         }
+
         <!-- for overange -->
-        <div class="gambling-character">{{charactersWheelAscii()[0]}}</div>
-        <div class="gambling-character">{{charactersWheelAscii()[1]}}</div>
+        <div class="gambling-character" 
+            [attr.data-char-index]="charactersWheelAscii().length">
+            {{charactersWheelAscii()[0]}}
+        </div>
+        <div class="gambling-character" 
+            [attr.data-char-index]="charactersWheelAscii().length + 1">
+            {{charactersWheelAscii()[1]}}
+        </div>
+        
     </div>
 </div>
